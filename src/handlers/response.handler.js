@@ -29,11 +29,4 @@ const notFound = (res) =>
     message: "Cannot Find It",
   });
 
-export default {
-  error,
-  badRequest,
-  ok,
-  created,
-  unauthorize,
-  notFound,
-};
+export default { error, badRequest, ok, created, unauthorize, notFound };

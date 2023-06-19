@@ -10,15 +10,16 @@ const userSchema = new mongoose.Schema({
     },
     displayName: {
         type: String,
-        required: true,
+        required: true
     },
     password: {
         type: String,
         required: true,
+        select: false
     },
     salt: {
         type: String,
-        required: true,
+        required: true
     },
 }, modelOptions);
 
@@ -33,7 +34,7 @@ userSchema.methods.setPassword = (password) => {
     ).toString("hex")
 }
 
-userSchema.methods.validPassword = (password) => {
+userSchema.methods.validatePassword = (password) => {
     const hash = crypto.pbkdf2Sync(
         password,
         this.salt,
