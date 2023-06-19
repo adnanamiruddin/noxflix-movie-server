@@ -1,6 +1,9 @@
-import tmdbConfig from "./tmdb.config"
+import tmdbConfig from "./tmdb.config";
 
 const tmdbEndpoints = {
+    mediaSearch: ({mediaType, query, page}) => tmdbConfig.getUrl(
+        `search/${mediaType}`, {query, page}
+    ),
     mediaList: ({mediaType, mediaCategory, page}) => tmdbConfig.getUrl(
         `${mediaType}/${mediaCategory}`, page
     ),
@@ -16,14 +19,11 @@ const tmdbEndpoints = {
     mediaVideos: ({mediaType, mediaId}) => tmdbConfig.getUrl(
         `${mediaType}/${mediaId}/videos`
     ),
-    mediaRecommend: ({mediaType, mediaId}) => tmdbConfig.getUrl(
-        `${mediaType}/${mediaId}/recommendations`
-    ),
     mediaImages: ({mediaType, mediaId}) => tmdbConfig.getUrl(
         `${mediaType}/${mediaId}/images`
     ),
-    mediaSearch: ({mediaType, query, page}) => tmdbConfig.getUrl(
-        `search/${mediaType}`, {query, page}
+    mediaRecommend: ({mediaType, mediaId}) => tmdbConfig.getUrl(
+        `${mediaType}/${mediaId}/recommendations`
     ),
     personDetail: ({personId}) => tmdbConfig.getUrl(
         `person/${personId}`
@@ -31,6 +31,6 @@ const tmdbEndpoints = {
     personMedias: ({personId}) => tmdbConfig.getUrl(
         `person/${personId}/combined_credits`
     )
-}
+};
 
-export default {tmdbEndpoints}
+export default tmdbEndpoints;
