@@ -2,7 +2,6 @@ import express from "express";
 import { body } from "express-validator";
 import favoriteController from "../controllers/favorite.controller.js";
 import userController from "../controllers/user.controller.js";
-import responseHandler from "../handlers/response.handler.js";
 import requestHandler from "../handlers/request.handler.js";
 import userModel from "../models/user.model.js";
 import tokenMiddleware from "../middlewares/token.middleware.js";
@@ -104,7 +103,7 @@ router.post(
     .exists()
     .withMessage("Media type is required!")
     .custom((type) => ["movie", "tv"].includes(type))
-    .withMessage("Media type invalid!"),
+    .withMessage("Media type invalid"),
   body("mediaId")
     .exists()
     .withMessage("Media id is required!")
