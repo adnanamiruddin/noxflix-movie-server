@@ -1,11 +1,11 @@
 import express from "express";
 import { body } from "express-validator";
-import favoriteController from "../controllers/favorite.controller";
-import userController from "../controllers/user.controller";
-import responseHandler from "../handlers/response.handler";
-import requestHandler from "../handlers/request.handler";
-import userModel from "../models/user.model";
-import tokenMiddleware from "../middlewares/token.middleware";
+import favoriteController from "../controllers/favorite.controller.js";
+import userController from "../controllers/user.controller.js";
+import responseHandler from "../handlers/response.handler.js";
+import requestHandler from "../handlers/request.handler.js";
+import userModel from "../models/user.model.js";
+import tokenMiddleware from "../middlewares/token.middleware.js";
 
 const router = express.Router();
 
