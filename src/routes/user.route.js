@@ -112,6 +112,7 @@ router.post(
   body("mediaTitle").exists().withMessage("Media title is required!"),
   body("mediaPoster").exists().withMessage("Media poster is required!"),
   body("mediaRate").exists().withMessage("Media rate is required!"),
+  requestHandler.validate,
   favoriteController.addFavorite
 );
 
