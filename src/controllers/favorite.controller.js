@@ -42,7 +42,7 @@ const removeFavorite = async (req, res) => {
   }
 };
 
-const getUserFavorite = async (req, res) => {
+const getUserFavorites = async (req, res) => {
   try {
     const favorite = await favoriteModel
       .find({ user: req.user.id })
@@ -54,4 +54,4 @@ const getUserFavorite = async (req, res) => {
   }
 };
 
-export default { addFavorite, removeFavorite, getUserFavorite };
+export default { addFavorite, removeFavorite, getUserFavorites };
