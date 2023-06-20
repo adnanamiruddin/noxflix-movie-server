@@ -18,8 +18,7 @@ app.use("/api/v1", routes);
 const port = process.env.PORT || 5000;
 const server = http.createServer(app);
 
-mongoose
-  .connect(process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("Mongodb connected bang");
     server.listen(port, () => {
