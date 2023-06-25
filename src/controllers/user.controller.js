@@ -7,6 +7,7 @@ const signUp = async (req, res) => {
     const { username, displayName, password } = req.body;
 
     const checkUser = await userModel.findOne({ username });
+
     if (checkUser)
       return responseHandler.badRequest(res, "Username already exist");
 
@@ -31,6 +32,7 @@ const signUp = async (req, res) => {
     });
   } catch (error) {
     responseHandler.error(res);
+    console.log(error);
   }
 };
 

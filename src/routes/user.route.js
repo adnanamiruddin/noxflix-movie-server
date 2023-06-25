@@ -19,6 +19,11 @@ router.post(
       const user = await userModel.findOne({ username: value });
       if (user) return Promise.reject("Username already exist");
     }),
+  body("displayName")
+    .exists()
+    .withMessage("Diplay name is required!")
+    .isLength({ min: 8 })
+    .withMessage("Minimum 8 characters for your display name"),
   body("password")
     .exists()
     .withMessage("Password is required!")
@@ -34,11 +39,6 @@ router.post(
         throw new Error("Confirm password does not match with your password");
       return true;
     }),
-  body("displayName")
-    .exists()
-    .withMessage("Diplay name is required!")
-    .isLength({ min: 8 })
-    .withMessage("Minimum 8 characters for your display name"),
   requestHandler.validate,
   userController.signUp
 );
