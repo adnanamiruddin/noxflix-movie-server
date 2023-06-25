@@ -15,14 +15,14 @@ app.use(cookieParser());
 
 app.use("/api/v1", routes);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8081;
 const server = http.createServer(app)
 
 mongoose.connect(process.env.MONGODB_URL)
   .then(() => {
-    console.log("Mongodb connected bang");
+    console.log("MongoDb connected bang");
     server.listen(port, () => {
-      console.log(`Server is listening on port ${port}`);
+      console.log(`Server is listening ${port}`);
     });
   })
   .catch((err) => {
