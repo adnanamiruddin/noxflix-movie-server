@@ -28,7 +28,7 @@ router.post(
     .exists()
     .withMessage("Confirm password is required!")
     .isLength({ min: 8 })
-    .withMessage("Minimum 8 characters for password")
+    .withMessage("Minimum 8 characters for confirm password")
     .custom((value, { req }) => {
       if (value !== req.body.password)
         throw new Error("Confirm password does not match with your password");

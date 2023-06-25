@@ -15,8 +15,8 @@ app.use(cookieParser());
 
 app.use("/api/v1", routes);
 
-const port = process.env.PORT || 5000;
-const server = http.createServer(app);
+const port = process.env.PORT;
+const server = http.createServer(app)
 
 mongoose.connect(process.env.MONGODB_URL)
   .then(() => {

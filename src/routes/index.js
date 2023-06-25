@@ -6,7 +6,7 @@ import mediaRoute from "./media.route.js";
 
 const router = express.Router();
 
-router.use("/users", userRoute);
+router.use("/user", userRoute);
 router.use("/person", personRoute);
 router.use("/reviews", reviewRoute);
 router.use("/:mediaType", mediaRoute);
