@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("MongoDb connected bang");
     server.listen(port, () => {
-      console.log(`Server is listening ${port}`);
+      console.log(`Server is listening on ${port}`);
     });
   })
   .catch((err) => {
