@@ -99,16 +99,16 @@ router.get(
 router.post(
   "/favorites",
   tokenMiddleware.auth,
-  body("mediaType")
-    .exists()
-    .withMessage("Media type is required!")
-    .custom((type) => ["movie", "tv"].includes(type))
-    .withMessage("Media type invalid"),
   body("mediaId")
     .exists()
     .withMessage("Media id is required!")
     .isLength({ min: 1 })
     .withMessage("Media id can not be empty!"),
+  body("mediaType")
+    .exists()
+    .withMessage("Media type is required!")
+    .custom((type) => ["movie", "tv"].includes(type))
+    .withMessage("Media type invalid"),
   body("mediaTitle").exists().withMessage("Media title is required!"),
   body("mediaPoster").exists().withMessage("Media poster is required!"),
   body("mediaRate").exists().withMessage("Media rate is required!"),

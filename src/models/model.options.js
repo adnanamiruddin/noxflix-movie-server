@@ -1,20 +1,20 @@
 const modelOptions = {
     toJSON: {
         virtuals: true,
-        trasnform: (_, obj) => {
-            delete obj.id;
-            return obj
+        transform: (_, obj) => {
+            delete obj._id;
+            return obj;
         }
     },
     toObject: {
         virtuals: true,
-        trasnform: (_, obj) => {
-            delete obj.id;
-            return obj
+        transform: (_, obj) => {
+            delete obj._id;
+            return obj;
         }
     },
     versionKey: false,
-    timeStamps: true,
+    timestamps: true
 }
 
 export default modelOptions;
