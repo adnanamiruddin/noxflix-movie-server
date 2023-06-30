@@ -63,9 +63,8 @@ const getDetail = async (req, res) => {
     const videos = await tmdbApi.mediaVideos(params);
     media.videos = videos;
 
-    const recommend = await tmdbApi.mediaRecommend(params);
-    media.recommend = recommend.result;
-
+    const recommendations = await tmdbApi.mediaRecommendations(params);
+    media.recommendations = recommendations.results;
     media.images = await tmdbApi.mediaImages(params);
 
     const tokenDecoded = tokenMiddleware.tokenDecode(req);
@@ -88,7 +87,6 @@ const getDetail = async (req, res) => {
 
     responseHandler.ok(res, media);
   } catch (error) {
-    console.log(error);
     responseHandler.error(res);
   }
 };
