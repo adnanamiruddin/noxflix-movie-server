@@ -30,6 +30,9 @@ const tmdbEndpoints = {
     ),
     personMedias: ({personId}) => tmdbConfig.getUrl(
         `person/${personId}/combined_credits`
+    ),
+    personImages: ({personId}) => tmdbConfig.getUrl(
+        `person/${personId}/images`
     )
 };
 

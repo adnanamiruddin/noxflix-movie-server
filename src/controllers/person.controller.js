@@ -7,6 +7,9 @@ const getPersonDetail = async (req, res) => {
 
     const person = await tmdbApi.personDetail({ personId });
 
+    const images = await tmdbApi.personImages({personId})
+    person.images = images;
+
     responseHandler.ok(res, person);
   } catch (error) {
     responseHandler.error(res);

@@ -65,6 +65,7 @@ const getDetail = async (req, res) => {
 
     const recommendations = await tmdbApi.mediaRecommendations(params);
     media.recommendations = recommendations.results;
+
     media.images = await tmdbApi.mediaImages(params);
 
     const tokenDecoded = tokenMiddleware.tokenDecode(req);
