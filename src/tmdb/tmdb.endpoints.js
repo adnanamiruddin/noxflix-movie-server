@@ -1,9 +1,6 @@
 import tmdbConfig from "./tmdb.config.js";
 
 const tmdbEndpoints = {
-    mediaSearch: ({mediaType, query, page}) => tmdbConfig.getUrl(
-        `search/${mediaType}`, {query, page}
-    ),
     mediaList: ({mediaType, mediaCategory, page}) => tmdbConfig.getUrl(
         `${mediaType}/${mediaCategory}`, {page}
     ),
@@ -24,6 +21,9 @@ const tmdbEndpoints = {
     ),
     mediaRecommendations: ({mediaType, mediaId}) => tmdbConfig.getUrl(
         `${mediaType}/${mediaId}/recommendations`
+    ),
+    mediaSearch: ({mediaType, query, page}) => tmdbConfig.getUrl(
+        `search/${mediaType}`, {query, page}
     ),
     personDetail: ({personId}) => tmdbConfig.getUrl(
         `person/${personId}`
