@@ -32,7 +32,6 @@ const signUp = async (req, res) => {
     });
   } catch (error) {
     responseHandler.error(res);
-    console.log(error);
   }
 };
 
