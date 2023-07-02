@@ -1,3 +1,7 @@
+const responseWithData = (res, statusCode, data) => {
+  res.status(statusCode).json(data);
+};
+
 const ok = (res, data) => responseWithData(res, 200, data);
 
 const error = (res) =>
@@ -17,10 +21,6 @@ const notFound = (res) =>
     status: 404,
     message: "Cannot Find It",
   });
-
-const responseWithData = (res, statusCode, data) => {
-  res.status(statusCode).json(data);
-};
 
 const created = (res, data) => responseWithData(res, 201, data);
 

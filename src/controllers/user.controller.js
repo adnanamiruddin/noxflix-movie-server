@@ -74,7 +74,7 @@ const updatePassword = async (req, res) => {
 
     const user = await userModel
       .findById(req.user.id)
-      .select("id password salt");
+      .select("password id salt");
 
     if (!user) return responseHandler.unauthorize(res);
 
@@ -85,8 +85,7 @@ const updatePassword = async (req, res) => {
 
     await user.save();
 
-    responseHandler.ok(res);
-    responseHandler.error(res);
+    responseHandler.ok(res, user);
   } catch (error) {
     responseHandler.error(res);
   }
